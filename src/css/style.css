@@ -1,0 +1,40 @@
+.logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+.icon{
+    width: 15%;
+}
+
+.btn-menu{
+    padding: 15px;
+}
+
+ul.navigation{
+    display: none;
+    flex-direction: column;
+}
+.menu {
+    background-color: black;
+}
+ul.navigation.show{
+    display: flex;
+}
+
+ul.navigation li{
+    list-style: none;
+    margin: 0px 0px;
+    padding: 15px 20px;
+}
+
+ul.navigation li:hover{
+    background-color: grey;
+}
+
+ul.navigation li a {
+    text-decoration: none;
+    color: white;
+}
