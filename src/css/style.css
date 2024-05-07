@@ -5,36 +5,84 @@
     padding: 10px;
 
 }
+h1{
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .icon{
     width: 15%;
 }
-
-.btn-menu{
-    padding: 15px;
+#icon{
+    width: 100%;
 }
-
+#btn-menu{
+    justify-content: center;
+    padding: 15px;
+    width: 10%;    
+}
+#menuBtn{
+    width: 50%;
+}
 ul.navigation{
     display: none;
     flex-direction: column;
 }
-.menu {
-    background-color: black;
+#darkMode{
+    position: absolute;
+    top: 0%;
+    right: 0%
 }
+
 ul.navigation.show{
     display: flex;
 }
-
+.menu {
+    background-color: black;
+}
 ul.navigation li{
     list-style: none;
     margin: 0px 0px;
     padding: 15px 20px;
 }
-
 ul.navigation li:hover{
     background-color: grey;
 }
-
 ul.navigation li a {
-    text-decoration: none;
     color: white;
 }
+
+.content{
+    padding: 5%;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: gray;
+    position: relative;
+    width: 100%;
+    bottom: 0%;
+    padding: 2%;
+    margin: 0;
+}
+footer ul{
+    padding-left: 10%;
+    list-style: none;
+    font-weight: bold;
+}
+footer ul li{
+    color: black;
+}
+footer ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
