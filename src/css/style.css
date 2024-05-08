@@ -1,6 +1,5 @@
 .logo{
     display: flex;
-    justify-content: left;
     align-items: center;
     padding: 10px;
 
@@ -21,7 +20,7 @@ a {
 #btn-menu{
     justify-content: center;
     padding: 15px;
-    width: 10%;    
+    width: 20%;    
 }
 #menuBtn{
     width: 50%;
@@ -81,7 +80,7 @@ main{
 
 footer{
     display: block;
-    background-color: gray;
+    background-color: black;
     position: relative;
     width: 100%;
     bottom: 0%;
@@ -94,15 +93,23 @@ footer ul{
     font-weight: bold;
 }
 footer ul li{
-    color: black;
+    color: white;
 }
 footer ul li a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 
 @media only screen and (min-width: 768px) { 
+
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    
+    }
 
     #btn-menu {
         display: none;
@@ -126,7 +133,7 @@ footer ul li a{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: gray;
+        background-color: black;
         position: relative;
         width: 100%;
         bottom: 0%;
