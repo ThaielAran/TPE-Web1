@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 .logo{
     display: flex;
     align-items: center;
@@ -85,7 +88,7 @@ footer{
     display: block;
     background-color: black;
     position: relative;
-    width: 100%;
+    width: 95%;
     bottom: 0%;
     padding: 2%;
     margin: 0;
@@ -125,6 +128,18 @@ footer ul li a{
     margin: 2px;
 }
 
+#captchaImg{
+    width: 15%;
+}
+.msgBueno{
+    font-weight: bold;
+    color: green;
+}
+.msgMalo{
+    font-weight: bold;
+    color: red;
+}
+
 @media only screen and (min-width: 768px) { 
 
     .logo{
@@ -162,7 +177,7 @@ footer ul li a{
         align-items: center;
         background-color: black;
         position: relative;
-        width: 100%;
+        width: 95%;
         bottom: 0%;
         padding: 2%;
         margin: 0;
