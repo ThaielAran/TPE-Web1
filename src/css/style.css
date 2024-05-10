@@ -84,6 +84,40 @@ main{
     justify-content: right;
 }
 
+.darkBack{
+    background-color: black;
+}
+.darkMenu{
+    background-color: gray;
+}
+.darkLetters{
+    color: white;
+}
+.darkImg{
+    filter: invert(100%);
+}
+
+.elem{
+    display: flex;
+    margin: 2%;
+    align-items: center;
+}
+.camp{
+    margin: 2px;
+}
+
+#captchaImg{
+    width: 15%;
+}
+.msgOk{
+    font-weight: bold;
+    color: green;
+}
+.msgWrong{
+    font-weight: bold;
+    color: red;
+}
+
 footer{
     display: block;
     background-color: black;
@@ -104,40 +138,6 @@ footer ul li{
 footer ul li a{
     text-decoration: none;
     color: white;
-}
-
-.darkBack{
-    background-color: black;
-}
-.darkMenu{
-    background-color: gray;
-}
-.darkLetters{
-    color: white;
-}
-.darkImg{
-    filter: invert(100%);
-}
-
-.elem{
-    display: flex;
-    margin: 2%;
-    align-items: center;
-}
-.campo{
-    margin: 2px;
-}
-
-#captchaImg{
-    width: 15%;
-}
-.msgBueno{
-    font-weight: bold;
-    color: green;
-}
-.msgMalo{
-    font-weight: bold;
-    color: red;
 }
 
 @media only screen and (min-width: 768px) { 
@@ -169,7 +169,6 @@ footer ul li a{
     .illustrations{
         width: 50%;
     }
-
 
     footer{
         display: flex;
