@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,8 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
+
+<body id="fondo">
     <header>
         <div class="logo">
             <a href="index.html" class="icon">
@@ -31,14 +33,40 @@
             </ul>
         </div>
     </header>
-    <div class="content">
+    <main>
         <form action="">
             <h2>Contact</h2>
-            
+            <div class="elem">
+                <label for="">Name and Surname:</label>
+                <div class="campo">
+                    <input type="text" name="Name and Surname" id="">
+                </div>
+            </div>
+            <div class="elem">
+                <label for="">E-mail:</label>
+                <div class="campo">
+                    <input type="text" name="e-mail" id="">
+                </div>
+            </div>
+            <div class="elem">
+                <label for="">Phone number:</label>
+                <div class="campo">
+                    <input type="number" name="" id="">
+                </div>
+            </div>
+            <div class="elem">
+                <label for="text">Message:</label>
+                <div class="campo">
+                    <textarea name="msg" id="" cols="25" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="captcha">
+                <img src="" alt="" id="captchaImg">
+                <input type="text" name="captcha" id="inputCaptcha">
+                <button>Sumbit Message</button>
+            </div>
         </form>
-       
-        
-    </div>
+    </main>
     <footer>
         <ul>
             <li>Products:</li>
@@ -60,4 +88,5 @@
 
     <script src="js/javascript.js"></script>
 </body>
+
 </html>
