@@ -7,8 +7,8 @@ function toggleMenu() {
 }
 
 function darkMode() {
-    document.querySelector("#icon").src = "images/LogoD.jpg"
-    document.querySelector("#menuBtn").src = "images/menuBtnD.png"
+    document.querySelector("#icon").classList.toggle("darkImg")
+    document.querySelector("#menuBtn").classList.toggle("darkImg")
     document.querySelector("#fondo").classList.toggle("darkBack")
     document.querySelector(".menu").classList.toggle("darkMenu")
     document.querySelector("h1").classList.toggle("darkLetters")

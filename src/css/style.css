@@ -13,6 +13,7 @@ a {
 }
 .icon{
     width: 15%;
+    filter: invert(0%);
 }
 #icon{
     width: 100%;
@@ -20,7 +21,8 @@ a {
 #btn-menu{
     justify-content: center;
     padding: 15px;
-    width: 20%;    
+    width: 20%;
+    filter: invert(0%);    
 }
 #menuBtn{
     width: 50%;
@@ -109,6 +111,9 @@ footer ul li a{
 }
 .darkLetters{
     color: white;
+}
+.darkImg{
+    filter: invert(100%);
 }
 
 .elem{
