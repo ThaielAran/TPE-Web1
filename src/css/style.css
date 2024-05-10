@@ -62,17 +62,17 @@ main{
 .illustration{
     width: 100%;
 }
-
 .productsMobile{
     display: flex;
 }
-
 .productsDesktop{
     display: none;
 }
-
 .products{
     width: 50%;
+}
+.illustrations{
+    width: 100%;
 }
 
 .readMore{
@@ -112,6 +112,15 @@ footer ul li a{
     color: white;
 }
 
+.elem{
+    display: flex;
+    margin: 2%;
+    align-items: center;
+}
+.campo{
+    margin: 2px;
+}
+
 @media only screen and (min-width: 768px) { 
 
     #btn-menu {
@@ -129,6 +138,9 @@ footer ul li a{
     .productsDesktop{
         display: block;
         width: 33%;
+    }
+    .illustrations{
+        width: 50%;
     }
 
 
