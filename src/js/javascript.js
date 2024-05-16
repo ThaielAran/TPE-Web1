@@ -11,6 +11,7 @@ document.querySelector("#captchaImg").src="images/captcha" + indice + ".png";
 document.querySelector("#sbmtBtn").addEventListener("click", captchaCheck);
 
 function captchaCheck(){
+    event.preventDefault();
     let flag= false;
     let captchaInput=document.querySelector("#inputCaptcha").value.toLowerCase();
     if(captchaInput == captchArreglo[indice])
