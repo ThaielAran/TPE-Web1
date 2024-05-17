@@ -22,10 +22,10 @@
         </div>
         <div class="menu">
             <ul class="navigation">
-                <li><a href="">T-shirts</a></li>
-                <li><a href="">Illustrations</a></li>
-                <li><a href="">Skate Art</a></li>
-                <li><a href="">Flyers</a></li>
+                <li><a href="index.html">T-shirts</a></li>
+                <li><a href="index.html">Illustrations</a></li>
+                <li><a href="index.html">Skate Art</a></li>
+                <li><a href="index.html">Flyers</a></li>
                 <li><a href="aboutus.html">About us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -33,34 +33,36 @@
     </header>
     <main>
         <form action="">
-            <h2>Contact</h2>
-            <div class="elem">
-                <label for="">Name and Surname:</label>
-                <div class="camp">
-                    <input type="text" name="Name and Surname" id="">
+            <div class="contact">
+                <h2>Contact</h2>
+                <div class="elem">
+                    <label for="">Name and Surname:</label>
+                    <div class="camp">
+                        <input type="text" name="Name and Surname" id="" required>
+                    </div>
                 </div>
-            </div>
-            <div class="elem">
-                <label for="">E-mail:</label>
-                <div class="camp">
-                    <input type="text" name="e-mail" id="">
+                <div class="elem">
+                    <label for="">E-mail:</label>
+                    <div class="camp">
+                        <input type="text" name="e-mail" id="" required>
+                    </div>
                 </div>
-            </div>
-            <div class="elem">
-                <label for="">Phone number:</label>
-                <div class="camp">
-                    <input type="number" name="" id="">
+                <div class="elem">
+                    <label for="">Phone number:</label>
+                    <div class="camp">
+                        <input type="number" name="" id="" required>
+                    </div>
                 </div>
-            </div>
-            <div class="elem">
-                <label for="text">Message:</label>
-                <div class="camp">
-                    <textarea name="msg" id="" cols="25" rows="5"></textarea>
+                <div class="elem">
+                    <label for="text">Message:</label>
+                    <div class="camp">
+                        <textarea name="msg" id="" cols="25" rows="5" required></textarea >
+                    </div>
                 </div>
-            </div>
-            <div class="captcha">
-                <img src="" alt="captcha" id="captchaImg">
-                <input type="text" name="captcha" id="inputCaptcha">
+                <div class="captcha">
+                    <img src="" alt="captcha" id="captchaImg">
+                    <input type="text" name="captcha" id="inputCaptcha" required>
+                </div>
                 <button id="sbmtBtn">Sumbit Message</button>
             </div>
         </form>
