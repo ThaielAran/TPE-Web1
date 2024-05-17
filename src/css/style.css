@@ -22,7 +22,6 @@ a {
     width: 100%;
 }
 #btn-menu{
-    justify-content: center;
     padding: 15px;
     width: 20%;
     filter: invert(0%);    
@@ -62,17 +61,21 @@ ul.navigation li a {
 main{
     margin: 5%;
 }
+.sectionTitles{
+    text-align: center;
+    background-color: grey ;
+}
 
 .illustration{
     width: 100%;
 }
-.productsMobile{
+.products{
     display: flex;
 }
 .productsDesktop{
     display: none;
 }
-.products{
+.productsMobile{
     width: 50%;
 }
 .illustrations{
@@ -107,6 +110,11 @@ table, td, tr{
     filter: invert(100%);
 }
 
+.darkTable{
+    border: solid 1px white;
+    border-collapse: collapse;
+}
+
 .elem{
     display: flex;
     margin: 2%;
@@ -131,11 +139,9 @@ table, td, tr{
 footer{
     display: block;
     background-color: black;
-    position: relative;
     width: 95%;
-    bottom: 0%;
     padding: 2%;
-    margin: 0;
+
 }
 footer ul{
     padding-left: 10%;
@@ -168,16 +174,33 @@ footer ul li a{
         display: flex;
         flex-direction: row;
     }
-
-    .products{
+    
+    .productsMobile{
         width: 33%;
+    }
+    .products{
+        display: flex;
+        justify-content: space-between;
     }
     .productsDesktop{
         display: block;
         width: 33%;
     }
     .illustrations{
-        width: 50%;
+        width: 48%;
+    }
+
+    .contact{
+        width: 30%;
+    }
+
+    form{
+        display: flex;
+        justify-content: center;
+    }
+
+    #captchaImg{
+        width: 30%;
     }
 
     footer{
@@ -185,10 +208,7 @@ footer ul li a{
         justify-content: center;
         align-items: center;
         background-color: black;
-        position: relative;
         width: 95%;
-        bottom: 0%;
-        padding: 2%;
-        margin: 0;
+        
     }
 }
