@@ -31,7 +31,14 @@ function captchaCheck(e) {
 }
 
 
-function darkMode() {   
+function darkMode() {
+    
+    let dmButton = document.querySelector("#darkMode")
+    console.log(dmButton.value)
+    if (dmButton.src.includes("images/darkModeOff.png"))
+        dmButton.src = "images/darkModeOn.png"
+    else
+        dmButton.src = "images/darkModeOff.png"
     document.querySelector("#icon").classList.toggle("darkImg");
     document.querySelector("#menuBtn").classList.toggle("darkImg");
     document.querySelector("#fondo").classList.toggle("darkBack");
