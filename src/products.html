@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocking Designs</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body id="fondo">
+    <header>
+        <div class="logo">
+            <div id="btn-menu"><img src="images/menuBtn.png" alt="Menu" id="menuBtn"></div>
+            <a href="index.html" class="icon">
+                <img id="icon" src="images/Logo.jpg" alt="RDLogo">
+            </a>
+            <a href="index.html">
+                <h1>Rocking Designs</h1>
+            </a>
+            <div><img src="images/darkModeOff.png" alt="DarkMode" id="darkMode"></div>
+        </div>
+        <div class="menu">
+            <ul class="navigation">
+                <li><a href="index.html">T-shirts</a></li>
+                <li><a href="index.html">Illustrations</a></li>
+                <li><a href="index.html">Skate Art</a></li>
+                <li><a href="index.html">Flyers</a></li>
+                <li><a href="aboutus.html">About us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <h2>Products Table</h2>
+        <table>
+            <thead class="eventsTableTitles">
+                <tr>
+                    <td>Type</td>
+                    <td>Name</td>
+                    <td>Main color</td>
+                    <td>Size</td>
+                </tr>
+            </thead>
+            <tbody class="productsT">
+
+            </tbody>
+        </table>
+        <button id="new">New Product</button>
+        <form id="create" class="hidden">
+            <div>
+                <label for="">Type</label>
+                <input name="type" type="text" required>
+            </div>
+            <div>
+                <label for="">Name</label>
+                <input name="name" type="text" required>
+            </div>
+            <div>
+                <label for="">Main color</label>
+                <input name="color" type="text" required>
+            </div>
+            <div>
+                <label for="">Size</label>
+                <input name="size" type="text" required>
+            </div>
+            <button type="submit">Submmit</button>
+        </form>
+    </main>
+
+    <script src="js/javascript.js"></script>
+    <script src="js/products.js"></script>
+</body>
