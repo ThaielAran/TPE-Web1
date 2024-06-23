@@ -1,43 +1,9 @@
 "use strict"
-
 const BASE_URL = "https://6667717ea2f8516ff7a77eff.mockapi.io/products"
-show_products();
 
-let createForm = document.querySelector("#create")
-document.querySelector("#new").addEventListener("click", () => {
-    createForm.classList.toggle("hidden")   //form is shown when new is clicked
-    createForm.classList.toggle("show")
-    createForm.addEventListener('submit', create_product);
-})
-async function create_product(e) {                         //turns form data into a JSON and it POSTs it into endpoint
-    e.preventDefault();
-    let data = new FormData(createForm);
-    let product = {
-        "type": data.get("type"),
-        "name": data.get("name"),
-        "mainColor": data.get("color"),
-        "size": data.get("size")
-    }
-    try {
-        let response = await fetch(BASE_URL, {
-            'method': 'POST',
-            "headers": {
-                'Content-Type': 'application/json'
-            },
-            'body': JSON.stringify(product)
-        })
-        if (response.ok) {
-            createForm.classList.toggle("hidden")
-            createForm.classList.toggle("show")
-            alert("Item has been added (" + product.name + ")")
-        }
-    } catch (error) {
-        alert("Error, item could not be created" + error)
-    }
-    show_products()
-}
+let container = document.querySelector("#use-ajax")
 
-async function show_products() {                        //GETs data from endpoint and presents it in a table
+async function show_products() {                                     //GETs data from endpoint and presents it in a table
     let tabla = document.querySelector(".productsT")
     let response = await fetch(BASE_URL)
     let data = await response.json()
@@ -49,7 +15,7 @@ async function show_products() {                        //GETs data from endpoin
         <button class="delete" id=${item.id}>Delete</button> <button class="edit" id=${item.id}>Edit</button></td> </tr>`
     }
     const deleteBtns = document.querySelectorAll(".delete")
-    deleteBtns.forEach(button => {                      //also creates delete and edit buttons for each item
+    deleteBtns.forEach(button => {                                  //also adds delete and edit buttons for each item
         button.addEventListener("click", () => {
             delete_product(button.id)
         })
@@ -62,18 +28,51 @@ async function show_products() {                        //GETs data from endpoin
     })
 }
 
-async function update_product(num) {                    //
+async function create_product(e) {                                  //turns form data into a JSON and it POSTs it into endpoint
+    e.preventDefault();
+    let message = container.querySelector("#message")
+    let data = new FormData(createForm);
+    let product = {                                                 //creates product object from form
+        "type": data.get("type"),
+        "name": data.get("name"),
+        "mainColor": data.get("color"),
+        "size": data.get("size")
+    }
+    try {
+        let response = await fetch(BASE_URL, {                      //pushes it into the endpoint through POST method
+            'method': 'POST',
+            "headers": {
+                'Content-Type': 'application/json'
+            },
+            'body': JSON.stringify(product)
+        })
+        if (response.ok) {
+            createForm.classList.toggle("hidden")                   //form is hidden when creation is done
+            createForm.classList.toggle("show")
+            message.innerHTML = "Item has been added (" + product.name + ")";
+        }
+    } catch (error) {
+        message.innerHTML = "Error, item could not be added" + error
+    }
+    show_products()
+}
+
+async function update_product(num) {                                //brings product endpiont and modifies (PUT) according to input
     let response = await fetch(BASE_URL + "/" + num)
     let data = await response.json()
-    let itemTr = document.querySelector("#p" + num)
-    itemTr.innerHTML = `<td><input id="type" type="text" value=${data.type} required> </td> 
-                        <td><input id="name" type="text" value=${data.name} required> </td> 
-                        <td><input id="color" type="text" value=${data.mainColor} required></td> 
-                        <td><input id="size" type="text" value=${data.size} required></td> <td>
-                        <button id="submit">Submit</button></td>`
+    let updateForm = container.querySelector("#update")
+    updateForm.classList.toggle("hidden")                           //form is shown when update is clicked
+    updateForm.classList.toggle("show")
+    let message = container.querySelector("#message")
 
-    let editForm = document.querySelector("#submit")
-    editForm.addEventListener('click', async () => {
+    document.querySelector("#type").value = data.type               //values from endpoint are assigned as standard to inputs
+    document.querySelector("#name").value = data.name
+    document.querySelector("#color").value = data.mainColor
+    document.querySelector("#size").value = data.size
+    let fData = new FormData(updateForm);
+    console.log(fData)
+    updateForm.addEventListener('submit', async (e) => {            //when submit is clicked, inputs turn into object
+        e.preventDefault();                                         //which is pushed to the respective product endpoint
         let product = {
             "type": document.querySelector("#type").value,
             "name": document.querySelector("#name").value,
@@ -81,7 +80,7 @@ async function update_product(num) {                    //
             "size": document.querySelector("#size").value
         }
         try {
-            let response = await fetch(BASE_URL+ "/" + num, {
+            let response = await fetch(BASE_URL + "/" + num, {
                 'method': 'PUT',
                 "headers": {
                     'Content-Type': 'application/json'
@@ -89,17 +88,22 @@ async function update_product(num) {                    //
                 'body': JSON.stringify(product)
             })
             if (response.ok) {
-                alert("Item has been modified (" + product.name + ")")
+                message.innerHTML = " "
+                message.innerHTML = "Item has been modified (" + product.name + ")";
+                updateForm.classList.toggle("hidden")               //form is hidden when update is done
+                updateForm.classList.toggle("show")
             }
         } catch (error) {
-            alert("Error, item could not be modified" + error)
+            message.innerHTML = " "
+            message.innerHTML = "Error, item could not be modified" + error
         }
+
         show_products()
-    })    
+    })
 }
 
-
-async function delete_product(num) {
+async function delete_product(num) {                                //brings product endpoint and DELETE's it
+    let message = container.querySelector("#message")
     try {
         let response = await fetch(BASE_URL + "/" + num, {
             'method': 'DELETE',
@@ -109,11 +113,10 @@ async function delete_product(num) {
         })
         if (response.ok) {
             let data = await response.json()
-            alert("Se eliminó el producto " + data.id + " " + data.name)
+            message.innerHTML = "Item has been deleted " + data.id + " " + data.name
         }
     } catch (error) {
-        alert("Error, item no existente" + error)
+        message.innerHTML = "Error, item does not exist" + error
     }
     show_products()
 }
-

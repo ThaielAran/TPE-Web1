@@ -1,16 +1,34 @@
 document.querySelector('#btn-menu').addEventListener("click", toggleMenu);
 document.querySelector("#darkMode").addEventListener("click", darkMode);
-document.querySelector("form").addEventListener("submit", captchaCheck);
-let captchArreglo = ['jk5lf', 'h1y4s', 'd3toa', 'rg7eb']
-let indice = (Math.floor(Math.random() * 4) + 0);
-document.querySelector("#captchaImg").src = "images/captcha" + indice + ".png";
+loadPage("home.html")
 
-function toggleMenu() {
+
+                                                                            //event listener for all html partial  render
+document.querySelector("#contact").addEventListener("click", (e) => {
+    e.preventDefault()
+    loadPage("contact.html")
+});
+document.querySelector("#aboutUs").addEventListener("click", (e) => {
+    e.preventDefault()
+    loadPage("aboutus.html")
+});
+document.querySelector(".icon").addEventListener("click", (e) => {
+    e.preventDefault()
+    loadPage("home.html")
+});
+document.querySelector("#products").addEventListener("click", (e) => {
+    e.preventDefault()
+    loadPage("products.html")
+});
+
+function toggleMenu() {                                                     //shows or hides navigation menu
     document.querySelector(".navigation").classList.toggle("show");
 }
 
-function captchaCheck(e) {
-    e.preventDefault();
+let captchArreglo = ['jk5lf', 'h1y4s', 'd3toa', 'rg7eb'];
+let indice = (Math.floor(Math.random() * 4) + 0);
+function captchaCheck(e) {                                                  //checks if input value matches with captcha,
+    e.preventDefault();                                                     //which is stored in an array (name and index point to img)
     let flag = false;
     let captchaInput = document.querySelector("#inputCaptcha").value.toLowerCase();
     if (captchaInput == captchArreglo[indice])
@@ -33,8 +51,8 @@ function captchaCheck(e) {
     }
 }
 
-function darkMode() {
-    
+function darkMode() {                                                       //modifies classes on elements to bring a dark or light style
+
     let dmButton = document.querySelector("#darkMode")
     console.log(dmButton.value)
     if (dmButton.src.includes("images/darkModeOff.png"))
@@ -59,4 +77,38 @@ function darkMode() {
     document.querySelector("tr").classList.toggle("darkTable");
 }
 
+function loadPage(htmlLoad) {                                               //fetches an html and if response is ok calls processText
+    fetch(htmlLoad).then(function (response) {                              //to add it to the dom
+        if (response.ok) {
+            response.text().then(processText)
+        }
+    }).catch(error => {
+        console.log(error)
+    })
+
+
+}
+
+function processText(t) {                                                   //processes fetched html into the dom and calls addBtnEvent
+    let container = document.querySelector("#use-ajax")
+    container.innerHTML = t
+    addBtnEvent(t);
+}
+
+function addBtnEvent(t) {                                                   //adds events to buttons depending on which html is loaded
+    let container = document.querySelector("#use-ajax")                     
+    if (t.includes("captcha")) {
+        container.querySelector("#captchaImg").src = "images/captcha" + indice + ".png";
+        container.querySelector("#contactForm").addEventListener("submit", captchaCheck);
+    } else {
+        show_products();
+        container.querySelector("#new").addEventListener("click", () => {
+            createForm = container.querySelector("#create")
+            createForm.classList.toggle("hidden")                           //form is shown when new is clicked
+            createForm.classList.toggle("show")
+            createForm.addEventListener('submit', create_product);
+        })
+    }
+
+}
 

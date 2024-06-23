@@ -19,6 +19,8 @@ a {
 }
 
 .icon {
+    display: flex;
+    align-items: center;
     width: 15%;
     filter: invert(0%);
 }
